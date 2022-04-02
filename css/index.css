@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  
+}
+*::before , *::after {
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --pink:#ff74a4;
+  --violet:#9f6ea3;
+  --light-black:#515c6f;
+  --white:#fff;
+  --dark-white:#cecaca;
+  --pink-shadow:#ffcbdd;
+  --lightbshadow: rgba(0,0,0,0.15);
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.wrapper {
+  width: 380px;
+  position: relative;
+  background: var(--white);
+  box-shadow: 0px 6px 15px var( --lightbshadow);
+  border-radius: 15px;
+  padding: 25px 30px;
+  overflow: hidden;
+}
+.wrapper i{
+  cursor: pointer;
+}
+.top-down, .progress-area .timer, .controls, .music-list .header, .music-list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-down i{
+  font-size: 30px;
+  color: var(--light-black);
+}
+.top-down span{
+  font-size: 18px;
+  color: var(--light-black);
+}
+.img-area{
+  height: 256px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 25px;
+  box-shadow: 0px 6px 12px var( --lightbshadow);
+}
+.img-area img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.song-details{
+  text-align: center;
+  margin: 30px 0;
+  color: var(--light-black);
+  
+}
+.song-details .name{
+  font-size: 21px;
+}
+.song-details .artist{
+  font-size: 18px;
+  opacity: 0.9;
+}
+.progress-area{
+  height: 6px;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.progress-area .progress-bar{
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+}
+.progress-bar::before{
+  content: "";
+  height: 12px;
+  width: 12px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  border-radius: inherit;
+  background: inherit;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.progress-area:hover .progress-bar::before {
+  opacity: 1;
+}
+.progress-area .timer{
+  margin-top: 2px;
+}
+.timer{
+  font-size: 13px;
+  color: var(--light-black);
+}
+.controls{
+  margin: 40px 0 5px 0px;
+}
+.controls i{
+  font-size: 28px;
+  user-select: none;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+  background-clip: text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.controls i:nth-child(2){
+  font-size: 43px;
+  margin-right:-13px ;
+}
+.controls i:nth-child(4){
+  font-size: 43px;
+  margin-left:-13px ;
+}
+.controls .play-pause{
+  height: 54px;
+  width: 53px;
+   background: linear-gradient(var(--white) 0%, var(--dark-white) 100%);
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow:0px 0px 5px var(--pink);
+}
+.music-list{
+  position: absolute;
+  background: var(--white);
+  width: 100%;
+  left: 0;
+  bottom: -55%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
+  transition: all 0.15s ease-out;
+}
+.music-list.show{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;}
+  
+.music-list .header .raw{
+  display: flex;
+  align-items: center;
+  color: var(--light-black);
+  font-size: 18px;
+}
+.header .raw i{
+  cursor: default;
+}
+.header .raw span{
+  margin-left: 5px;
+}
+.header #close{
+  font-size: 22px;
+  color: var(--light-black);
+}
+.music-list ul{
+  margin: 10px 0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.music-list ul::-webkit-scrollbar{
+  width: 0px;
+}
+.music-list ul li{
+  list-style: none;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: var(--light-black);
+}
+.music-list ul li:last-child{
+  border-bottom: 0px;
+}
+.music-list ul li .raw span{
+  font-size: 17px;
+}
+ul li .raw p{
+  opacity: 0.9;
+}
+ul li .audio-duration{
+  font-size: 16px;
+}
+
